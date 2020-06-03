@@ -60,7 +60,7 @@ class User:
     def json_user(self):
         return json.dumps({
             "name": self.name,
-            "jon": self.job
+            "job": self.job
         })
 
     def json_user_data(self):
