@@ -10,9 +10,10 @@ class TestUser(Template):
 
     @pytest.fixture
     def create_user(self, user):
-        response = self.api.post(self.api.USERS_URL, user)
+        response = self.api.post(self.api.USERS_URL, user.json_user())
         assert response.status_code == 201
-        return json.loads(response.content)['id']
+        user.id = json.loads(response.content)['id']
+        return user
 
     def test_single_user(self):
         response = self.api.get(self.api.USERS_URL)
@@ -38,7 +39,7 @@ class TestUser(Template):
         assert create_user
 
     def test_update_user(self, create_user):
-        print(f'--> user created, id:{create_user}')
+        print(f'--> user created, id:{create_user.id}')
         # user created and user_id received in test
         # add user update below
 

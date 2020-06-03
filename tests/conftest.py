@@ -4,4 +4,4 @@ from src.user import UpdateUser
 
 @pytest.fixture
 def user():
-    return UpdateUser().json_user()
+    return UpdateUser()

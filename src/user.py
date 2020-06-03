@@ -4,6 +4,7 @@ import json
 
 class User:
     def __init__(self, name=None, job=None, user_id=None, email=None, password=None):
+        self.id = None
         self.name = name
         self.job = job
         self.user_id = user_id
