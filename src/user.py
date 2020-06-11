@@ -53,24 +53,24 @@ class User:
         self.set_job(Generator.generate_email(5))
 
     def json_credentials(self):
-        return json.dumps({
+        return {
             "email": self.email,
             "password": self.password
-        })
+        }
 
     def json_user(self):
-        return json.dumps({
+        return {
             "name": self.name,
             "job": self.job
-        })
+        }
 
     def json_user_data(self):
-        return json.dumps({
+        return {
             "name": self.name,
             "email": self.email,
             "password": self.password,
             "job": self.job
-        })
+        }
 
 
 class FullUser(User):

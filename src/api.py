@@ -14,8 +14,8 @@ class Api:
     def get(self, url, params=None):
         return requests.get(url, params=params)
 
-    def post(self, url, data):
-        return requests.post(url, data)
+    def post(self, url, *args, **kwargs):
+        return requests.post(url, *args, **kwargs)
 
     def put(self, url, data):
         return requests.put(url, data)
