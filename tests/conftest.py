@@ -1,5 +1,6 @@
 import pytest
 from src.user import UpdateUser
+from src.api import Api
 
 
 @pytest.fixture
@@ -8,8 +9,8 @@ def user():
 
 
 @pytest.fixture(scope='function')
-def create_user(self, user):
-    response = self.api.post(self.api.USERS_URL, json=user.json_user())
+def create_user(user, self=None):
+    response = Api.post(self, Api.USERS_URL, json=user.json_user())
 
     assert response.status_code == 201
 
