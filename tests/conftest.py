@@ -9,8 +9,8 @@ def user():
 
 
 @pytest.fixture(scope='function')
-def create_user(user, self=None):
-    response = Api.post(self, Api.USERS_URL, json=user.json_user())
+def create_user(user):
+    response = Api().post(Api.USERS_URL, json=user.json_user())
 
     assert response.status_code == 201
 
