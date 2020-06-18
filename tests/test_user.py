@@ -1,9 +1,4 @@
-import json
-
-import pytest
-
 from src.template import Template
-from src.user import FullUser, UpdateUser, SignUpUser
 
 
 class TestUser(Template):
@@ -42,15 +37,6 @@ class TestUser(Template):
         assert 200 == response.status_code
         assert user.name == response.json()['name']
         assert user.job == response.json()['job']
-        # print(f'--> user created, id:{user.id}')
-        # user created and user_id received in test
-        # add user update below
-
-    def test_patch_user(self, create_user):
-        pass
-        # response = self.api.patch(self.api.USERS_URL, UpdateUser().json_user())
-
-        # assert 201 == response.status_code
 
     def test_delete_user(self):
         response = self.api.delete(self.api.USERS_URL + "/2")
